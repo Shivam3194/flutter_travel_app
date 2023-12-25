@@ -1,0 +1,72 @@
+* A Widget that allows us to refresh the screen is called a ____________ ?
+Ans:- Stateful Widget 
+
+* Which of the following function is responsible for the Starting of the Program?
+Ans:- main();
+
+* Advantages of Flutter:-
+- Cross-Platform Development
+- Faster Development
+- Minimal Code
+
+* The Flutter tooling supports how many modes while compiling the Application ? 
+3 modes
+- Debug mode
+- Profile mode
+- Release mode
+
+* Which Widgets are used for repeating content in Flutter ?
+- ListView
+- GridView
+- Column & Row
+- ListView.builder & GridView.builder
+- ListView.separated & GridView.separated
+- Wrap(Chip kar sakte hain)
+
+* Which components allow us to specify the distance between widgets on the screen ?
+- SizedBox
+
+* Which property are used to hide text in text field ?
+- Obscure text
+
+* Which is a sequence of asynchronous events ?
+- Streams
+
+* When building for an IOS flutter is restricted for which compilation strategy ?
+- AOT(Ahead of Time)
+
+* Which of the following takes more time to compile and update the App ?
+- Hot Restart 
+
+* What is the refresh rate of Animations in flutter ?
+- Ticker 
+
+* What is the purpose of setState() method in flutter ?
+- To manage the state of the Application.
+
+* What is the purpose of Scaffold widget in flutter ?
+- To provide a set of material design widgets.
+
+* What is a widget in a flutter ?
+- A visual emement in the user interface.
+
+* What language is Flutter's rendering engine primarily written in?
+c++
+
+* What command you use to compile your flutter App in Release mode ? 
+- Flutter run --rebase
+
+* Which of the following animation allows us to represent real-world behaviour in Flutter?
+- Physics based
+
+* How many types of streams in flutter ?
+2 
+- Single subscription Stream
+- Broadcast Streams
+
+* Unlike other programming languages dart does not support ?
+- Arrays 
+
+* 
+______contains all required packages for the basic building blocks of writing a Flutter application?
+Flutter Boundary 
