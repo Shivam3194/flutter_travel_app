@@ -5,18 +5,21 @@ import 'package:flutter_travel_app/ui/bloc/home_bloc/home_bloc.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../custom_files/app_colors.dart';
+import '../../../data/model/home_screen_model.dart';
 import '../widgets/tourist_place_widget.dart';
 
 class HomeIconScreen extends StatelessWidget {
   HomeIconScreen({
     super.key,
     required this.state,
+    this.placesListDetailed,
+    required this.onFavouritePressed,
   });
 
   final HomeScreenLoadedState state;
-
+  final PlacesListDetailed? placesListDetailed;
   TextEditingController textEditingController = TextEditingController();
-
+  final Function(PlacesListDetailed)? onFavouritePressed;
   FocusNode focusNode = FocusNode();
 
   @override
@@ -142,7 +145,9 @@ class HomeIconScreen extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(right: 16),
                         child: TouristPlaceWidget(
-                          item: item1,
+                          placesListDetailed: item1,
+                          onFavouritePressed: onFavouritePressed,
+                          fillfavoriteIcon: state.fillFavoriteIcon,
                         ),
                       );
                     },

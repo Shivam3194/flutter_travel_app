@@ -22,5 +22,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ));
       }
     });
+
+    on<HomeTouristPlaceWidgetFavouriteIconClickedEvent>((event, emit) async {
+      try {
+        if (state is HomeScreenLoadedState) {
+          final currentState = state as HomeScreenLoadedState;
+
+          emit(
+            currentState.copyWith(
+              fillFavoriteIcon: true,
+            ),
+          );
+        }
+      } catch (e) {
+        emit(HomeScreenErrorState(
+          message: 'Unknown Exception',
+        ));
+      }
+    });
   }
 }

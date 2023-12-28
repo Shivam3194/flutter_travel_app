@@ -16,12 +16,25 @@ class HomeScreenLoadingState extends HomeState {
 
 class HomeScreenLoadedState extends HomeState {
   final HomeScreenModel? fieldData;
+  bool fillFavoriteIcon;
 
   HomeScreenLoadedState({
     required this.fieldData,
+    this.fillFavoriteIcon = false,
   });
+
+  HomeScreenLoadedState copyWith({
+    HomeScreenModel? fieldData,
+    bool? fillFavoriteIcon,
+  }) {
+    return HomeScreenLoadedState(
+      fieldData: fieldData ?? this.fieldData,
+      fillFavoriteIcon: fillFavoriteIcon ?? this.fillFavoriteIcon,
+    );
+  }
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [fieldData, fillFavoriteIcon];
 }
 
 class HomeScreenErrorState extends HomeState {

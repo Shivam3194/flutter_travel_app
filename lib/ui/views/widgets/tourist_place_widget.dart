@@ -6,10 +6,14 @@ import '../../../custom_files/app_colors.dart';
 import '../../../data/model/home_screen_model.dart';
 
 class TouristPlaceWidget extends StatelessWidget {
-  final PlacesListDetailed item;
-  const TouristPlaceWidget({
+  final PlacesListDetailed? placesListDetailed;
+  final Function(PlacesListDetailed)? onFavouritePressed;
+  bool fillfavoriteIcon;
+  TouristPlaceWidget({
     super.key,
-    required this.item,
+    required this.placesListDetailed,
+    required this.onFavouritePressed,
+    this.fillfavoriteIcon = false,
   });
 
   @override
@@ -18,15 +22,15 @@ class TouristPlaceWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height * 1;
     return InkWell(
       onTap: () {
-        String capitalName = item.capitalName ?? " ";
-        String placeName = item.placeName ?? "";
-        String countryName = item.countryName ?? "";
-        String rating = item.rating ?? "";
-        String image = item.url ?? " ";
-        String price = item.price ?? "";
-        String temperature = item.temperature ?? "";
-        String travelTime = item.travelTime ?? "";
-        String description = item.description ?? "";
+        String capitalName = placesListDetailed!.capitalName ?? " ";
+        String placeName = placesListDetailed!.placeName ?? "";
+        String countryName = placesListDetailed!.countryName ?? "";
+        String rating = placesListDetailed!.rating ?? "";
+        String image = placesListDetailed!.url ?? " ";
+        String price = placesListDetailed!.price ?? "";
+        String temperature = placesListDetailed!.temperature ?? "";
+        String travelTime = placesListDetailed!.travelTime ?? "";
+        String description = placesListDetailed!.description ?? "";
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -53,7 +57,7 @@ class TouristPlaceWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  item.url ?? " ",
+                  placesListDetailed!.url ?? " ",
                   fit: BoxFit.cover,
                   loadingBuilder: (BuildContext context, Widget child,
                       ImageChunkEvent? loadingProgress) {
@@ -98,7 +102,7 @@ class TouristPlaceWidget extends StatelessWidget {
                         width: width * .7,
                         child: Text(
                           //"Mount Fuji, Tokyo",
-                          item.placeName ?? "",
+                          placesListDetailed!.placeName ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.poppins(
@@ -128,7 +132,7 @@ class TouristPlaceWidget extends StatelessWidget {
                                   const SizedBox(width: 10),
                                   Text(
                                     //"🌍 Tokyo, Japan",
-                                    "${item.capitalName}, ${item.countryName}",
+                                    "${placesListDetailed!.capitalName}, ${placesListDetailed!.countryName}",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
@@ -149,7 +153,7 @@ class TouristPlaceWidget extends StatelessWidget {
                                   const SizedBox(width: 3),
                                   Text(
                                     //"* 4.8",
-                                    item.rating ?? " ",
+                                    placesListDetailed!.rating ?? " ",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
@@ -175,8 +179,19 @@ class TouristPlaceWidget extends StatelessWidget {
               child: Chip(
                 padding: const EdgeInsets.fromLTRB(-2, -2, -2, -2),
                 label: InkWell(
-                  onTap: () {},
-                  child: const Icon(Icons.favorite_border_outlined),
+                  onTap: () {
+                    onFavouritePressed != null
+                        ? onFavouritePressed!.call(placesListDetailed!)
+                        : null;
+                  },
+                  child: placesListDetailed!.isFavorite
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(
+                          Icons.favorite_border_outlined,
+                        ),
                 ),
                 shape: const CircleBorder(),
                 backgroundColor: Colors.grey.withOpacity(0.9),

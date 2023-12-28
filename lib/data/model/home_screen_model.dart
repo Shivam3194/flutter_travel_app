@@ -56,6 +56,7 @@ class PlacesListDetailed {
   String? temperature;
   String? travelTime;
   String? description;
+  bool isFavorite;
 
   PlacesListDetailed({
     this.url,
@@ -67,6 +68,7 @@ class PlacesListDetailed {
     this.temperature,
     this.travelTime,
     this.description,
+    this.isFavorite = false,
   });
 
   factory PlacesListDetailed.fromJson(Map<String, dynamic> json) =>
@@ -80,6 +82,7 @@ class PlacesListDetailed {
         temperature: json['temperature'],
         travelTime: json['travelTime'],
         description: json['description'],
+        isFavorite: json['isFavorite'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -92,6 +95,7 @@ class PlacesListDetailed {
         'temperature': temperature,
         'travelTime': travelTime,
         'description': description,
+        'isFavorite': isFavorite,
       };
 }
 
