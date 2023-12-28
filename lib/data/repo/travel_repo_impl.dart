@@ -20,6 +20,18 @@ class TravelRepoImpl extends TravelRepo {
       placesListDetailed: [
         PlacesListDetailed(
             url:
+                'https://images.unsplash.com/photo-1627894483216-2138af692e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmFyYW5hc2l8ZW58MHx8MHx8fDA%3D',
+            placeName: 'Varanasi, India',
+            capitalName: 'Varanasi',
+            countryName: 'India',
+            rating: '4.9',
+            price: '150',
+            temperature: '18',
+            travelTime: '10',
+            description:
+                'Varanasi also Benares, Banaras or Kashi is a city on the Ganges river in northern India that has a central place in the traditions of pilgrimage, death, and mourning in the Hindu world.[17][b] The city has a syncretic tradition of Muslim artisanship that underpins its religious tourism.[20] Located in the middle-Ganges valley in the southeastern part of the state of Uttar Pradesh, Varanasi lies on the left bank of the river. It is 692 kilometres (430 mi) to the southeast of Indias capital New Delhi and 320 kilometres (200 mi) to the southeast of the state capital, Lucknow. It lies 121 kilometres (75 mi) downstream of Prayagraj, where the confluence with the Yamuna river is another major Hindu pilgrimage site. Varanasi, the centre of the Bhojpuri cultural region is one of the worlds oldest continually inhabited cities.[21][22][23] Kashi, its ancient name, was associated with a kingdom of the same name of 2,500 years ago. The Lion capital of Ashoka at nearby Sarnath has been interpreted to be a commemoration of the Buddhas first sermon there in the fifth century BCE.[24][25] In the 8th century, Adi Shankara established the worship of Shiva as an official sect of Varanasi. Tulsidas wrote his Awadhi language epic, the Ramcharitmanas, a Bhakti movement reworking of the Sanskrit Ramayana, in Varanasi. Several other major figures of the Bhakti movement were born in Varanasi, including Kabir and Ravidas.[26] In the 16th century, Rajput nobles in the service of the courts and armies of the Mughal emperor Akbar, sponsored the building or further enhancement of the major Shiva temple in the city; they also built other temples, all displaying an empire-wide architectural style.[27][28] Under the Treaty of Faizabad, the East India Company acquired Benares in 1775,[29][30] the city later successively becoming a part of the Benares Division in the Ceded and Conquered Provinces, the North-Western Provinces, and the United Provinces, and after Indias independence of Uttar Pradesh.'),
+        PlacesListDetailed(
+            url:
                 'https://images.unsplash.com/photo-1606667544139-81e47935d769?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbmFsaXxlbnwwfHwwfHx8MA%3D%3D',
             placeName: 'Manali, Himachal Pradesh',
             capitalName: 'Shimla',
