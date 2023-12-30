@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_travel_app/features/login_screen/login_bloc/login_view.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_view.dart';
 import 'package:flutter_travel_app/ui/views/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
+            builder: (context) => LoginView(),
           ));
     });
   }
