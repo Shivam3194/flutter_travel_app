@@ -3,14 +3,17 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_travel_app/ui/bloc/favourite_bloc/favourite_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../custom_files/app_colors.dart';
+import '../../../data/model/home_screen_model.dart';
 import '../tourist_place_detailed.dart';
 
 class FavouriteScreen extends StatelessWidget {
   final FavouriteLoadedState state;
+  final Function(PlacesListDetailed)? onFavouriteRemoved;
 
   const FavouriteScreen({
     super.key,
     required this.state,
+    this.onFavouriteRemoved,
   });
 
   @override
@@ -33,7 +36,7 @@ class FavouriteScreen extends StatelessWidget {
               style: GoogleFonts.poppins(
                 letterSpacing: 0.3,
                 color: Colors.black,
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -49,9 +52,9 @@ class FavouriteScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: SafeArea(
           child: ListView.builder(
-            itemCount: state.favouriteModel.length,
+            itemCount: state.favouriteItems.length,
             itemBuilder: (context, index) {
-              final item = state.favouriteModel[index];
+              final item = state.favouriteItems[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Stack(
@@ -199,6 +202,24 @@ class FavouriteScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 25,
+                      child: Chip(
+                        padding: const EdgeInsets.fromLTRB(-2, -2, -2, -2),
+                        label: InkWell(
+                          onTap: () {
+                            onFavouriteRemoved!.call(item);
+                          },
+                          child: const Icon(
+                            Icons.favorite,
+                            color: Colors.black,
+                          ),
+                        ),
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.grey.withOpacity(0.9),
                       ),
                     ),
                   ],

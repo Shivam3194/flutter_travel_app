@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.seedBlue),
       ),
       home: const SplashScreen(),
+      initialRoute: "/",
     );
   }
 }

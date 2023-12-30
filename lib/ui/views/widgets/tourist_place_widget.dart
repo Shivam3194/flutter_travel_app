@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../custom_files/app_colors.dart';
 import '../../../data/model/home_screen_model.dart';
 
-class TouristPlaceWidget extends StatelessWidget {
+class TouristPlaceWidget extends StatefulWidget {
   final PlacesListDetailed? placesListDetailed;
   final Function(PlacesListDetailed)? onFavouritePressed;
   bool fillfavoriteIcon;
@@ -17,20 +17,25 @@ class TouristPlaceWidget extends StatelessWidget {
   });
 
   @override
+  State<TouristPlaceWidget> createState() => _TouristPlaceWidgetState();
+}
+
+class _TouristPlaceWidgetState extends State<TouristPlaceWidget> {
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 1;
     final height = MediaQuery.of(context).size.height * 1;
     return InkWell(
       onTap: () {
-        String capitalName = placesListDetailed!.capitalName ?? " ";
-        String placeName = placesListDetailed!.placeName ?? "";
-        String countryName = placesListDetailed!.countryName ?? "";
-        String rating = placesListDetailed!.rating ?? "";
-        String image = placesListDetailed!.url ?? " ";
-        String price = placesListDetailed!.price ?? "";
-        String temperature = placesListDetailed!.temperature ?? "";
-        String travelTime = placesListDetailed!.travelTime ?? "";
-        String description = placesListDetailed!.description ?? "";
+        String capitalName = widget.placesListDetailed!.capitalName ?? " ";
+        String placeName = widget.placesListDetailed!.placeName ?? "";
+        String countryName = widget.placesListDetailed!.countryName ?? "";
+        String rating = widget.placesListDetailed!.rating ?? "";
+        String image = widget.placesListDetailed!.url ?? " ";
+        String price = widget.placesListDetailed!.price ?? "";
+        String temperature = widget.placesListDetailed!.temperature ?? "";
+        String travelTime = widget.placesListDetailed!.travelTime ?? "";
+        String description = widget.placesListDetailed!.description ?? "";
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -57,7 +62,7 @@ class TouristPlaceWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  placesListDetailed!.url ?? " ",
+                  widget.placesListDetailed!.url ?? " ",
                   fit: BoxFit.cover,
                   loadingBuilder: (BuildContext context, Widget child,
                       ImageChunkEvent? loadingProgress) {
@@ -102,7 +107,7 @@ class TouristPlaceWidget extends StatelessWidget {
                         width: width * .7,
                         child: Text(
                           //"Mount Fuji, Tokyo",
-                          placesListDetailed!.placeName ?? "",
+                          widget.placesListDetailed!.placeName ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.poppins(
@@ -132,7 +137,7 @@ class TouristPlaceWidget extends StatelessWidget {
                                   const SizedBox(width: 10),
                                   Text(
                                     //"🌍 Tokyo, Japan",
-                                    "${placesListDetailed!.capitalName}, ${placesListDetailed!.countryName}",
+                                    "${widget.placesListDetailed!.capitalName}, ${widget.placesListDetailed!.countryName}",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
@@ -153,7 +158,7 @@ class TouristPlaceWidget extends StatelessWidget {
                                   const SizedBox(width: 3),
                                   Text(
                                     //"* 4.8",
-                                    placesListDetailed!.rating ?? " ",
+                                    widget.placesListDetailed!.rating ?? " ",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
@@ -176,25 +181,30 @@ class TouristPlaceWidget extends StatelessWidget {
             Positioned(
               top: 15,
               right: 15,
-              child: Chip(
-                padding: const EdgeInsets.fromLTRB(-2, -2, -2, -2),
-                label: InkWell(
-                  onTap: () {
-                    onFavouritePressed != null
-                        ? onFavouritePressed!.call(placesListDetailed!)
-                        : null;
-                  },
-                  child: placesListDetailed!.isFavorite
+              child: InkWell(
+                onTap: () {
+                  widget.onFavouritePressed!.call(widget.placesListDetailed!);
+                  if (widget.fillfavoriteIcon) {
+                    setState(() {
+                      widget.placesListDetailed!.isFavorite =
+                          !(widget.placesListDetailed!.isFavorite);
+                    });
+                  }
+                },
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundColor: Colors.grey.withOpacity(0.9),
+                  child: widget.placesListDetailed!.isFavorite
                       ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
+                          size: 35,
                         )
                       : const Icon(
                           Icons.favorite_border_outlined,
+                          size: 35,
                         ),
                 ),
-                shape: const CircleBorder(),
-                backgroundColor: Colors.grey.withOpacity(0.9),
               ),
             ),
           ],

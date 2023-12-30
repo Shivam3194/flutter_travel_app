@@ -13,9 +13,24 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState> {
       try {
         emit(FavouriteLoadingState());
 
-        List<FavouriteModel>? record = travelRepo.getFavouriteModelData();
+        emit(FavouriteLoadedState(favouriteItems: favouriteItems));
+      } catch (e) {
+        emit(FavouriteErrorState(
+          message: 'Unknown Exception',
+        ));
+      }
+    });
 
-        emit(FavouriteLoadedState(favouriteModel: record));
+    on<FavouriteRemoveEvent>((event, emit) async {
+      try {
+        emit(FavouriteLoadingState());
+
+        favouriteItems.remove(event.removedItemFromFavourite);
+
+        emit(FavouriteLoadedState(
+          favouriteItems: favouriteItems,
+          isitemRemovedFromFavourite: true,
+        ));
       } catch (e) {
         emit(FavouriteErrorState(
           message: 'Unknown Exception',

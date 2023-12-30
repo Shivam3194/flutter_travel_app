@@ -9,11 +9,11 @@ class HomeScreenAddEvent extends HomeEvent {
 }
 
 class HomeTouristPlaceWidgetFavouriteIconClickedEvent extends HomeEvent {
-  final PlacesListDetailed placesListDetailed;
+  final PlacesListDetailed clickedTouristPlace;
 
   HomeTouristPlaceWidgetFavouriteIconClickedEvent({
-    required this.placesListDetailed,
+    required this.clickedTouristPlace,
   });
   @override
-  List<Object?> get props => [placesListDetailed];
+  List<Object?> get props => [clickedTouristPlace];
 }

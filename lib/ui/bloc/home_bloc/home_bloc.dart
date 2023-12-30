@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_travel_app/data/model/favourite_model.dart';
 import 'package:flutter_travel_app/data/repo/travel_repo.dart';
 import 'package:flutter_travel_app/data/repo/travel_repo_impl.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_event.dart';
@@ -28,6 +29,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         if (state is HomeScreenLoadedState) {
           final currentState = state as HomeScreenLoadedState;
 
+          final isAlreadyFavourite =
+              favouriteItems.contains(event.clickedTouristPlace);
+          if (isAlreadyFavourite) {
+            favouriteItems.remove(event.clickedTouristPlace);
+          } else {
+            favouriteItems.add(event.clickedTouristPlace);
+          }
           emit(
             currentState.copyWith(
               fillFavoriteIcon: true,

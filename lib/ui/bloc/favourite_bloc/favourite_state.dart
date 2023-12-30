@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_travel_app/data/model/favourite_model.dart';
+import 'package:flutter_travel_app/data/model/home_screen_model.dart';
 
 abstract class FavouriteState extends Equatable {}
 
@@ -14,13 +15,15 @@ class FavouriteLoadingState extends FavouriteState {
 }
 
 class FavouriteLoadedState extends FavouriteState {
-  final List<FavouriteModel> favouriteModel;
+  final List<PlacesListDetailed> favouriteItems;
+  bool? isitemRemovedFromFavourite;
 
   FavouriteLoadedState({
-    required this.favouriteModel,
+    required this.favouriteItems,
+    this.isitemRemovedFromFavourite = false,
   });
   @override
-  List<Object?> get props => [favouriteModel];
+  List<Object?> get props => [favouriteItems, isitemRemovedFromFavourite];
 }
 
 class FavouriteErrorState extends FavouriteState {

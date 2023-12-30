@@ -5,11 +5,9 @@ import 'package:flutter_travel_app/custom_files/app_colors.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_bloc.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_event.dart';
 import 'package:flutter_travel_app/ui/bloc/home_bloc/home_state.dart';
-import 'package:flutter_travel_app/ui/views/bottom_icon/clock_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../data/model/home_screen_model.dart';
 import '../../views/bottom_icon/home_icon_screen.dart';
-import 'package:easy_refresh/easy_refresh.dart';
 
 class HomeView extends StatelessWidget {
   final VoidCallback onSelected;
@@ -28,24 +26,7 @@ class HomeView extends StatelessWidget {
     final width = MediaQuery.of(context).size.width * 1;
     return BlocProvider(
       create: (context) => HomeBloc()..add(HomeScreenAddEvent()),
-      child: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {
-          if (state is HomeScreenLoadedState) {
-            if (state.fillFavoriteIcon) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(
-                  "Trip Added To WishList",
-                  style: GoogleFonts.poppins(
-                    letterSpacing: 0.3,
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ));
-            }
-          }
-        },
+      child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           if (state is HomeScreenInitialState ||
               state is HomeScreenLoadingState) {
@@ -64,7 +45,7 @@ class HomeView extends StatelessWidget {
               onFavouritePressed: (PlacesListDetailed placesListDetailed) {
                 BlocProvider.of<HomeBloc>(context).add(
                     HomeTouristPlaceWidgetFavouriteIconClickedEvent(
-                        placesListDetailed: placesListDetailed));
+                        clickedTouristPlace: placesListDetailed));
               },
             );
           } else if (state is HomeScreenEmptyState) {
