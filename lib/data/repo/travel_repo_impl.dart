@@ -138,31 +138,31 @@ class TravelRepoImpl extends TravelRepo {
     );
   }
 
-  @override
-  List<FavouriteModel> getFavouriteModelData() {
-    return [
-      FavouriteModel(
-          url:
-              'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHVya2V5fGVufDB8fDB8fHww',
-          placeName: 'Pamukalle, Turkey',
-          capitalName: 'Pamukalle',
-          countryName: 'Turkey',
-          rating: '4.9',
-          price: '700',
-          temperature: '3',
-          travelTime: '36',
-          description: 'Pamukalle is a best place.'),
-      FavouriteModel(
-          url:
-              'https://images.unsplash.com/photo-1627894483216-2138af692e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmFyYW5hc2l8ZW58MHx8MHx8fDA%3D',
-          placeName: 'Varanasi, India',
-          capitalName: 'Varanasi',
-          countryName: 'India',
-          rating: '4.9',
-          price: '150',
-          temperature: '18',
-          travelTime: '10',
-          description: 'Varanasi is a good place'),
-    ];
-  }
+  // @override
+  // List<PlacesListDetailed> getFavouriteModelData() {
+  //   return [
+  //     FavouriteModel(
+  //         url:
+  //             'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHVya2V5fGVufDB8fDB8fHww',
+  //         placeName: 'Pamukalle, Turkey',
+  //         capitalName: 'Pamukalle',
+  //         countryName: 'Turkey',
+  //         rating: '4.9',
+  //         price: '700',
+  //         temperature: '3',
+  //         travelTime: '36',
+  //         description: 'Pamukalle is a best place.'),
+  //     FavouriteModel(
+  //         url:
+  //             'https://images.unsplash.com/photo-1627894483216-2138af692e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmFyYW5hc2l8ZW58MHx8MHx8fDA%3D',
+  //         placeName: 'Varanasi, India',
+  //         capitalName: 'Varanasi',
+  //         countryName: 'India',
+  //         rating: '4.9',
+  //         price: '150',
+  //         temperature: '18',
+  //         travelTime: '10',
+  //         description: 'Varanasi is a good place'),
+  //   ];
+  // }
 }
