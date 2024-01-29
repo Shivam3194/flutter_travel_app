@@ -17,6 +17,11 @@ dependencies:
   bloc:
   cached_network_image: ^3.2.3
   easy_refresh: ^3.0.0
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+  firebase_core: ^2.24.2
+  flutter_map: ^4.0.0
+  latlong2: any
 
 dev_dependencies:
   flutter_test:

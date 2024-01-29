@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_travel_app/ui/views/home_screen.dart';
+import 'package:flutter_travel_app/ui/views/widgets/google_map_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FullUserImage extends StatelessWidget {
@@ -44,7 +45,7 @@ class FullUserImage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.share),
+            icon: const Icon(Icons.maps_ugc_rounded),
           )
         ],
       ),
