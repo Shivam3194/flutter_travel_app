@@ -1,4 +1,3 @@
-import 'package:flutter_travel_app/data/model/favourite_model.dart';
 import 'package:flutter_travel_app/data/model/home_screen_model.dart';
 import 'package:flutter_travel_app/data/repo/travel_repo.dart';
 

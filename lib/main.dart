@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_travel_app/custom_files/app_colors.dart';
@@ -5,6 +6,8 @@ import 'package:flutter_travel_app/features/login_screen/login_bloc/login_view.d
 import 'package:flutter_travel_app/features/login_screen/views/signup_screen.dart';
 import 'package:flutter_travel_app/ui/views/splash_screen.dart';
 
+
+//late final FirebaseAnalytics analytics;
 void main() {
   runApp(const MyApp());
 }
